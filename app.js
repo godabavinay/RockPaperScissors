@@ -28,16 +28,28 @@ function win(userChoice, computerChoice) {
     userScore++;
     userScore_span.innerHTML = userScore;
     result_p.innerHTML = `${convertToWord(userChoice)}${smallUserWord} beats ${convertToWord(computerChoice)}${smallCompWord}. You Win!...🔥`;
+    document.getElementById(userChoice).classList.add('green-glow');
+    setTimeout(function() {
+        document.getElementById(userChoice).classList.remove('green-glow');
+    }, 300);
 }
 
 function lose(userChoice, computerChoice) {
     computerScore++;
     computerScore_span.innerHTML = computerScore;
     result_p.innerHTML = `${convertToWord(userChoice)}${smallUserWord} loses to ${convertToWord(computerChoice)}${smallCompWord}. You lose!...💩`;
+    document.getElementById(userChoice).classList.add('red-glow');
+    setTimeout(function() {
+        document.getElementById(userChoice).classList.remove('red-glow');
+    }, 300);
 }
 
 function draw(userChoice, computerChoice) {
-    result_p.innerHTML = `${convertToWord(userChoice)}${smallUserWord} equals to ${convertToWord(computerChoice)}${smallCompWord}. 😑...`;    
+    result_p.innerHTML = `${convertToWord(userChoice)}${smallUserWord} equals to ${convertToWord(computerChoice)}${smallCompWord}. 😑...`;
+    document.getElementById(userChoice).classList.add('gray-glow');
+    setTimeout(function() {
+        document.getElementById(userChoice).classList.remove('gray-glow');
+    }, 300);
 }
 
 function game(userChoice) {
